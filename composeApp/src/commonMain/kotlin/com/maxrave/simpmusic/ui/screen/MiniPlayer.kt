@@ -582,6 +582,7 @@ fun MiniPlayer(
                     }
             }
         }
+
         if (showQueueBottomSheet) {
             QueueBottomSheet(
                 onDismiss = {
@@ -589,6 +590,7 @@ fun MiniPlayer(
                 },
             )
         }
+
         Box(
             modifier.then(
                 Modifier.clickable {
