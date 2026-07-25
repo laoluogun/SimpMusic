@@ -870,7 +870,7 @@ fun MiniPlayer(
                             }
                         }
                         var previousVolumeValue by rememberSaveable {
-                            mutableFloatStateOf(1f)
+                            mutableFloatStateOf(controllerState.volume.coerceAtLeast(0.1f))
                         }
                         LaunchedEffect(controllerState.volume) {
                             if (controllerState.volume > 0f) {
@@ -884,7 +884,7 @@ fun MiniPlayer(
                                     previousVolumeValue = controllerState.volume
                                     sharedViewModel.onUIEvent(UIEvent.UpdateVolume(0f))
                                 } else {
-                                    sharedViewModel.onUIEvent(UIEvent.UpdateVolume(previousVolumeValue.coerceAtLeast(0.1f)))
+                                    sharedViewModel.onUIEvent(UIEvent.UpdateVolume(previousVolumeValue.coerceIn(0.1f, 1f)))
                                 }
                             },
                         ) {
