@@ -2077,6 +2077,9 @@ fun HeartCheckBox(
         modifier =
             Modifier
                 .size(size.dp)
+                // Before .clip: the burst draws outside the button bounds and the circle clip
+                // would trim it to the heart's own circle.
+                .heartBurst(checked)
                 .clip(CircleShape)
                 .clickable {
                     onStateChange?.invoke()
