@@ -1387,14 +1387,16 @@ fun QueueItemBottomSheet(
                                     QueueItemAction.PLAYNEXT -> {
                                         Image(
                                             imageVector = SimpIcons.PlayCircle,
-                                            contentDescription = "Play Next"
+                                            contentDescription = "Play Next",
+                                            colorFilter = ColorFilter.tint(rememberSurfaceDarkColors().content),
                                         )
                                     }
 
                                     QueueItemAction.ADDTOQUEUE -> {
                                         Image(
                                             imageVector = SimpIcons.QueueMusic,
-                                            contentDescription = "Add to Queue"
+                                            contentDescription = "Add to Queue",
+                                            colorFilter = ColorFilter.tint(rememberSurfaceDarkColors().content),
                                         )
                                     }
 
